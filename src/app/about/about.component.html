@@ -1,0 +1,42 @@
+<div class="container">
+  <h1 class="display-1">About</h1>
+  <p class="lead">This is about Pages</p>
+  <p>
+    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium
+    mollitia voluptates doloribus vero laborum dolorum perspiciatis soluta aut,
+    labore exercitationem accusantium quae esse animi ipsam, rerum officia at
+    sed voluptatibus repellat nostrum veniam? Tempore iusto nisi possimus
+    voluptas sit suscipit, voluptatem accusamus provident magni totam molestias,
+    fugiat maiores est velit deserunt iste rerum illo obcaecati expedita!
+    Tempora, voluptas sapiente est blanditiis dignissimos suscipit quos porro
+    aspernatur omnis ipsam ratione enim praesentium quod delectus veritatis
+    fugit, facilis molestiae explicabo dolore? Veritatis, perferendis quis!
+    Error itaque beatae a culpa rerum asperiores earum, consequuntur nemo! Rerum
+    reprehenderit dolorum tempore necessitatibus maiores nostrum mollitia.
+  </p>
+
+  <form [formGroup]="aboutForm">
+    <label for="inputPassword5" class="form-label"> email </label>
+    <input
+      formControlName="email"
+      name="email"
+      type="email"
+      class="form-control mb-2"
+      placeholder="โปรดระบุค่า"
+    />
+
+    @if(submitted && aboutForm.controls['email'].errors){
+    @if(aboutForm.controls['email'].errors?.['required']){
+    <div class="text-danger">กรุณาป้อน Email</div>
+    } @if(aboutForm.controls['email'].errors?.['email']){
+    <div class="text-danger">รูปแบบ Email ไม่ถูกต้อง</div>
+    } }
+    <button
+      (click)="handleLogin()"
+      type="submit"
+      class="btn btn-success mb-4 py-2 w-100"
+    >
+      send
+    </button>
+  </form>
+</div>
